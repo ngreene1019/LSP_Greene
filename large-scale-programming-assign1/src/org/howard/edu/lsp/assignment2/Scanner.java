@@ -5,6 +5,12 @@ import java.util.stream.*;
 
 import package org.howard.edu.lsp.assignment2;
 
+/**
+ * 
+ * @param args Scans the user input. Prints tokens. Converts tokens into integers.
+ * Finds the sum and product of tokens.
+ */
+
 public class Main {
 	
 	public static void main(String[] args) {
@@ -55,3 +61,9 @@ public class Main {
 	}
 
 }
+
+/* Sources:
+https://www.techiedelight.com/read-string-standard-input-java/
+https://www.programiz.com/java-programming/examples/print-array
+https://www.tutorialspoint.com/program-to-convert-list-of-string-to-list-of-integer-in-java
+*/
