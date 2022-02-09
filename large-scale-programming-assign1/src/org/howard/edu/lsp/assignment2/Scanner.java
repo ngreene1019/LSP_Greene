@@ -11,14 +11,13 @@ import package org.howard.edu.lsp.assignment2;
  * Finds the sum and product of tokens.
  */
 
-public class Main {
+public class Scanner {
 	
 	public static void main(String[] args) {
-		boolean end = false;
 		int num = 1;
-		while (num >= 0){
+		while (num > 0){
 			Scanner Input = new Scanner(System.in);
-		    System.out.println("String?");
+			System.out.println("String?");
 		    String[] tokens = Input.nextLine().split(" ");
 		    Input.close();
 
@@ -27,12 +26,12 @@ public class Main {
 		    boolean ending = strList.contains("Goodbye");
 
 		    if (ending){
-		      break;
-		    } else{
-		      System.out.println("Tokens:");
-		      for (String element: tokens) {
-		    
-		        System.out.println(element);   
+		    	break;
+		    	} else{
+		    	System.out.println("Tokens:");
+		    	for (String element: tokens) {
+		    		System.out.println(element);   
+		    		
 
 		      }
 
