@@ -65,5 +65,4 @@ public class Scanner {
 https://www.techiedelight.com/read-string-standard-input-java/
 https://www.programiz.com/java-programming/examples/print-array
 https://www.tutorialspoint.com/program-to-convert-list-of-string-to-list-of-integer-in-java
-committing
 */
