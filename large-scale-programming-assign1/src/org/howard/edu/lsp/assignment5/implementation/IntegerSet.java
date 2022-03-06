@@ -3,36 +3,58 @@ package org.howard.edu.lsp.assignment5.implementation;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * 
+ * @author Najah Greene
+ *
+ */
+
+
 public class IntegerSet {
-	
+
 	private ArrayList<Integer> set = new ArrayList<Integer>();
-	public ArrayList<Integer> getSet() { return set; }
+	/**
+	 * @return the set when called.
+	 */
+	public ArrayList<Integer> getSet() { return set; } 
 	
-	// Default Constructor
+	/**
+	 * Default Constructor
+	 * Creates a new set when called
+	 */
 	public IntegerSet() {
+
+
 		
 		ArrayList<Integer> set = new ArrayList<Integer>();
 		
 		}
 	
-	// Clears the internal representation of the set
-	public void clear() {
+	
+	/**
+	 * Clears the internal representation of our set
+	 */
+	public void clear() {		
 		set.clear();
 		
 	};
 
-	// Returns the length of the  set
+
+	/**
+	 * @return the length of set.
+	 */
 	public int length() {
 		return set.size();
 		
 	};
 	
-	/*
-	 * * Returns true if the 2 sets are equal, false otherwise;
-	 * Two sets are equal if they contain all of the same values in ANY order.
-	*/
-	
+
+	/**
+	 * @param b is set b
+	 * @return true if the 2 sets are equal, otherwise false.
+	 */
 	public boolean equals(IntegerSet b) {
+		
 		int first = 0;
 		int sec = 0;
 		for (int num : set) {
@@ -42,7 +64,7 @@ public class IntegerSet {
 				return false;
 
 			}
-		}
+		} 
 		
 		if (first == set.size()) {
 			for(int num2 : b.getSet()) {
@@ -61,8 +83,13 @@ public class IntegerSet {
 		
 	};
 	
-	// Returns true if the set contains the value, otherwise false
+	
+	/**
+	 * @param value taken in
+	 * @return true if the set contains the value, otherwise false.
+	 */
 	public boolean contains(int value) {
+		
 		if (set.contains(value)) {
 			return true;
 			
@@ -72,9 +99,12 @@ public class IntegerSet {
 		}
 	};
 	
-	// Returns the largest item in the set; Throws a IntegerSetException if the set is empty 
+
+	/**
+	 * @return the largest item in the set. If the set is empty, and exception is thrown.
+	 */
 	public int largest() {
-		//throws IntegerSetException
+
 		if (set.isEmpty()) {
 			throw new IntegerSetException("This set is empty");
 		} else {
@@ -87,9 +117,11 @@ public class IntegerSet {
 		
 	};
 	
-	// Returns the smallest item in the set; Throws a IntegerSetException if the set is empty
+	/**
+	 * @return the smallest item in the set. If the set is empty, and exception is thrown.
+	 */
 	public int smallest() {
-		//throws IntegerSetException
+		
 		if (set.isEmpty()) {
 			throw new IntegerSetException("This set is empty");
 		} else {
@@ -104,18 +136,24 @@ public class IntegerSet {
 	};
 
 
-		// Adds an item to the set or does nothing to it
 
-	public void add(int item) {
+	/**
+	 * @param item is added to the set if the item is not already in the set.
+	 */
+	public void add(int item) { //Given by Professor Woolfolk during lecture.
+
 		if(!set.contains(item)) {
 			set.add(item);
 		}
 		
 	};
 
-		// Removes an item from the set or does nothing if not there
+	
+	/**
+	 * @param item is removed from the set if it is present. An exception is thrown if the set is empty.
+	 */
 	public void remove(int item) {
-		//throws IntegerSetException
+
 		if (set.isEmpty()) {
 			throw new IntegerSetException("This set is empty");
 			
@@ -123,17 +161,29 @@ public class IntegerSet {
 				set.remove(item);
 			}
 		
-	};  //Throws a IntegerSetException of the set is empty
+	};  
 
-	// Set union
+	
+	/**
+	 * @param intSetb
+	 * A union of the two sets is created.
+	 */
 	public void union(IntegerSet intSetb) {
+
 		for (int num : intSetb.getSet()) {
-			set.add(num);
+			if (!set.contains(num)) {
+				set.add(num);
+			}
+			
 		}
 	};
 
-	// Set intersection
+	/**
+	 * @param intSetb
+	 * Finds the values that the two sets have in common.
+	 */
 	public void intersect(IntegerSet intSetb) {
+
 		ArrayList<Integer> interset = new ArrayList<Integer>();
 		for (int num : set) {
 			if (intSetb.getSet().contains(num)) {
@@ -159,8 +209,13 @@ public class IntegerSet {
 		
 		}; 
 
-	// Set difference, i.e., s1 –s2
+	
+	/**
+	 * @param intSetb
+	 * Finds the values that differ between the two sets.
+	 */
 	public void diff(IntegerSet intSetb) {
+
 		ArrayList<Integer> set1 = new ArrayList<Integer>();
 		ArrayList<Integer> set2 = new ArrayList<Integer>();
 		for (int num : set) {
@@ -195,14 +250,21 @@ public class IntegerSet {
 		
 	};
 
-	// Returns true if the set is empty, false otherwise
+
+	/**
+	 * @return true if the set is empty and returns false if not.
+	 */
 	public boolean isEmpty() {
+
 		return set.isEmpty();
 	};
 
-	// Return String representation of your set
-	public String toString() {
-		return set.toString();
+	
+	/**
+	 * @return the string version of the set.
+	 */
+	public String toString() { //Given by Professor Woolfolk
+		return set.toString(); 
 	  
 	};
 
