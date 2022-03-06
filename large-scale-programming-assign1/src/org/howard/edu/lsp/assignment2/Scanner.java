@@ -1,15 +1,14 @@
-import java.util.Scanner;
-import java.util.Arrays;
+/*import java.util.Arrays;
 import java.util.*;
 import java.util.stream.*;
 
 import package org.howard.edu.lsp.assignment2;
 
-/**
+
  * 
  * @param args Scans the user input. Prints tokens. Converts tokens into integers.
  * Finds the sum and product of tokens.
- */
+ 
 
 public class Scanner {
 	
@@ -59,7 +58,7 @@ public class Scanner {
 
 	}
 
-}
+}*/
 
 /* Sources:
 https://www.techiedelight.com/read-string-standard-input-java/
