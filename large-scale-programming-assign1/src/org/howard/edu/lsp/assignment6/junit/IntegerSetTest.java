@@ -102,14 +102,53 @@ public class IntegerSetTest {
 	@Test
 	@DisplayName("IntegerSet.length test case")
 	public void testLargest() {
+		IntegerSet set1 = new IntegerSet();
 		
+		Exception exception = assertThrows(RuntimeException.class,() -> {
+			set1.largest();
+		});
 		
+		String expectedMessage = "This set is empty";
+		String actualMessage = exception.getMessage();
+		
+		assertTrue(actualMessage.contains(expectedMessage));
+		
+		set1.add(11);
+		set1.add(5);
+		set1.add(65);
+		set1.add(32);
+		
+		System.out.println(set1.toString());
+		assertEquals(65,set1.largest());
+		assertNotEquals(11,set1.largest());
+		assertNotEquals(5,set1.largest());
+		assertNotEquals(32,set1.largest());
 	}
 	
 	@Test
-	@DisplayName("IntegerSet.length test case")
+	@DisplayName("IntegerSet.smallest test case")
 	public void testSmallest() {
+		IntegerSet set1 = new IntegerSet();
 		
+		Exception exception = assertThrows(RuntimeException.class,() -> {
+			set1.smallest();
+		});
+		
+		String expectedMessage = "This set is empty";
+		String actualMessage = exception.getMessage();
+		
+		assertTrue(actualMessage.contains(expectedMessage)); //may change to equals
+		
+		set1.add(11);
+		set1.add(5);
+		set1.add(65);
+		set1.add(32);
+		
+		System.out.println(set1.toString());
+		assertEquals(5,set1.smallest());
+		assertNotEquals(11,set1.smallest());
+		assertNotEquals(65,set1.smallest());
+		assertNotEquals(32,set1.smallest());
 		
 	}
 	
@@ -140,7 +179,29 @@ public class IntegerSetTest {
 	@Test
 	@DisplayName("IntegerSet.remove test case")
 	public void testRemove() {
+		IntegerSet set1 = new IntegerSet();
 		
+		Exception exception = assertThrows(RuntimeException.class,() -> {
+			set1.remove(11);
+		});
+		
+		String expectedMessage = "This set is empty";
+		String actualMessage = exception.getMessage();
+		
+		assertTrue(actualMessage.contains(expectedMessage));
+		
+		set1.add(11);
+		set1.add(5);
+		set1.add(65);
+		set1.add(32);
+		System.out.println(set1.toString());
+		
+		set1.remove(11);
+		
+		System.out.println(set1.toString());
+		assertEquals("[5,65,32]",set1.toString());
+		assertNotEquals("[11,5,65,32]",set1.toString());
+
 	}
 	
 	@Test
@@ -200,8 +261,24 @@ public class IntegerSetTest {
 	}
 	
 	@Test
-	@DisplayName("IntegerSet.difference test case")
+	@DisplayName("IntegerSet.diff test case")
 	public void testDifference() {
+		IntegerSet set1 = new IntegerSet();
+		IntegerSet set2 = new IntegerSet();
+		
+		set1.add(1);
+		set1.add(2);
+		set1.add(3);
+		
+		set2.add(2);
+		set2.add(3);
+		set2.add(4);
+		
+		System.out.println(set1.toString());
+		System.out.println(set2.toString());
+		
+		assertEquals("[1,4]",set1.toString());
+		assertNotEquals("[1,2,3]",set1.toString());
 		
 		
 	}
@@ -222,9 +299,17 @@ public class IntegerSetTest {
 	}
 	
 	@Test
-	@DisplayName("IntegerSet.length test case")
+	@DisplayName("IntegerSet.toString test cases")
 	public void testToString() {
+		IntegerSet set1 = new IntegerSet();
+		set1.add(13);
+		set1.add(4);
+		set1.add(21);
+		set1.add(36);
 		
+		System.out.println(set1.toString());
+		assertEquals("[13,4,21,36]",set1.toString());
+		assertNotEquals("[]",set1.toString());
 		
 	}
 }
