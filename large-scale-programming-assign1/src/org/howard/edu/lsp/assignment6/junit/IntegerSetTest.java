@@ -280,7 +280,6 @@ public class IntegerSetTest {
 		assertEquals("[1,4]",set1.toString());
 		assertNotEquals("[1,2,3]",set1.toString());
 		
-		
 	}
 	
 	
