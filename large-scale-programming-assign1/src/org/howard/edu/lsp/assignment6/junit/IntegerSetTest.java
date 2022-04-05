@@ -100,7 +100,7 @@ public class IntegerSetTest {
 	}
 	
 	@Test
-	@DisplayName("IntegerSet.length test case")
+	@DisplayName("IntegerSet.largest test case")
 	public void testLargest() {
 		IntegerSet set1 = new IntegerSet();
 		
@@ -163,16 +163,16 @@ public class IntegerSetTest {
 		set1.add(65);
 		
 		System.out.println(set1.toString());
-		assertEquals("[5,32,11,65]",set1.toString());
+		assertEquals("[5, 32, 11, 65]",set1.toString());
 		assertNotEquals("[]",set1.toString());
 		
 		set1.add(7);
 		set1.add(11);
 		
 		System.out.println(set1.toString());
-		assertEquals("[5,32,11,65,7]",set1.toString());
-		assertNotEquals("[5,32,11,65]",set1.toString());
-		assertNotEquals("[5,32,11,65,7,11]",set1.toString());
+		assertEquals("[5, 32, 11, 65, 7]",set1.toString());
+		assertNotEquals("[5, 32, 11, 65]",set1.toString());
+		assertNotEquals("[5, 32, 11, 65, 7, 11]",set1.toString());
 		
 	}
 	
@@ -182,7 +182,7 @@ public class IntegerSetTest {
 		IntegerSet set1 = new IntegerSet();
 		
 		Exception exception = assertThrows(RuntimeException.class,() -> {
-			set1.remove(11);
+			set1.remove(0);
 		});
 		
 		String expectedMessage = "This set is empty";
@@ -196,11 +196,11 @@ public class IntegerSetTest {
 		set1.add(32);
 		System.out.println(set1.toString());
 		
-		set1.remove(11);
+		set1.remove(0);
 		
 		System.out.println(set1.toString());
-		assertEquals("[5,65,32]",set1.toString());
-		assertNotEquals("[11,5,65,32]",set1.toString());
+		assertEquals("[5, 65, 32]",set1.toString());
+		assertNotEquals("[11, 5, 65, 32]",set1.toString());
 
 	}
 	
@@ -219,8 +219,9 @@ public class IntegerSetTest {
 		System.out.println(set1.toString());
 		System.out.println(set2.toString());
 		
+		set1.union(set2);
 		
-		assertEquals("[1,2,3,4]",set1.toString());
+		assertEquals("[1, 2, 3, 4]",set1.toString());
 		assertNotEquals("[1,2]",set1.toString());
 		
 		IntegerSet set3 = new IntegerSet();
@@ -234,12 +235,14 @@ public class IntegerSetTest {
 		System.out.println(set3.toString());
 		System.out.println(set4.toString());
 		
+		set3.union(set4);
+		
 		assertEquals("[1,2,3]",set1.toString());
 		assertNotEquals("[1,2,1,3]",set1.toString());
 	}
 	
 	@Test
-	@DisplayName("IntegerSet.length test case")
+	@DisplayName("IntegerSet.intersect test case")
 	public void testIntersect() {
 		
 		IntegerSet set1 = new IntegerSet();
@@ -256,8 +259,10 @@ public class IntegerSetTest {
 		System.out.println(set1.toString());
 		System.out.println(set2.toString());
 		
-		assertEquals("[2,3]",set1.toString());
-		assertNotEquals("[1,2,3]",set1.toString());
+		set1.intersect(set2);
+		
+		assertEquals("[2, 3]",set1.toString());
+		assertNotEquals("[1, 2, 3]",set1.toString());
 	}
 	
 	@Test
@@ -276,6 +281,8 @@ public class IntegerSetTest {
 		
 		System.out.println(set1.toString());
 		System.out.println(set2.toString());
+		
+		set1.diff(set2);
 		
 		assertEquals("[1,4]",set1.toString());
 		assertNotEquals("[1,2,3]",set1.toString());
@@ -307,7 +314,7 @@ public class IntegerSetTest {
 		set1.add(36);
 		
 		System.out.println(set1.toString());
-		assertEquals("[13,4,21,36]",set1.toString());
+		assertEquals("[13, 4, 21, 36]",set1.toString());
 		assertNotEquals("[]",set1.toString());
 		
 	}
