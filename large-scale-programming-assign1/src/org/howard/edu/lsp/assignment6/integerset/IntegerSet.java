@@ -216,35 +216,19 @@ public class IntegerSet {
 	 */
 	public void diff(IntegerSet intSetb) {
 
-		ArrayList<Integer> set1 = new ArrayList<Integer>();
-		ArrayList<Integer> set2 = new ArrayList<Integer>();
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		
 		for (int num : set) {
-			if (!intSetb.getSet().contains(num)) {
-				if(!set1.contains(num)) {
-					set1.add(num);
-				}
+			if(!intSetb.contains(num)) {
+				temp.add(num);
 			}
 		
-		}
-		
-		
-		
-		for (int num : intSetb.getSet()) {
-			if (!set.contains(num)) {
-				if(!set2.contains(num)) {
-					set2.add(num);
-				}
-			}
 		}
 		
 		set.clear();
-		for (int num : set1) {
-			set.add(num);
-		}
 		
-		intSetb.getSet().clear();
-		for (int num : set2) {
-			intSetb.getSet().add(num);
+		for(int num : temp) {
+			set.add(num);
 		}
 		
 		

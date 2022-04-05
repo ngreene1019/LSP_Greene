@@ -237,8 +237,8 @@ public class IntegerSetTest {
 		
 		set3.union(set4);
 		
-		assertEquals("[1,2,3]",set1.toString());
-		assertNotEquals("[1,2,1,3]",set1.toString());
+		assertEquals("[1, 2, 3]",set3.toString());
+		assertNotEquals("[1, 2, 1, 3]",set3.toString());
 	}
 	
 	@Test
@@ -274,18 +274,30 @@ public class IntegerSetTest {
 		set1.add(1);
 		set1.add(2);
 		set1.add(3);
+		set1.add(4);
 		
 		set2.add(2);
 		set2.add(3);
-		set2.add(4);
+		set2.add(5);
+		set2.add(6);
 		
 		System.out.println(set1.toString());
 		System.out.println(set2.toString());
 		
 		set1.diff(set2);
 		
-		assertEquals("[1,4]",set1.toString());
-		assertNotEquals("[1,2,3]",set1.toString());
+		assertEquals("[1, 4]",set1.toString());
+		assertNotEquals("[1,2,3,4]",set1.toString());
+		set1.clear();
+		
+		set1.add(1);
+		set1.add(2);
+		set1.add(3);
+		set1.add(4);
+		
+		set2.diff(set1);
+		assertEquals("[5, 6]",set2.toString());
+		assertNotEquals("[2,3,5,6]",set2.toString());
 		
 	}
 	
